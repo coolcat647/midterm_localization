@@ -31,6 +31,8 @@ roslaunch midterm_localization solution_easy.launch use_rviz:=true \
     num_threads:=8 \
     num_pretest_frames:=4 \
     num_pretest_poses:=200
+--------------------------------------------------------
+rosbag play ITRI_Private_1.bag --clock -r 0.05
 ```
 ### Nuscenes
 ```bash
