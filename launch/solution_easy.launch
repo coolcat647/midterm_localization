@@ -25,12 +25,12 @@
 
     <!-- RVIZ -->
     <group if="$(eval arg('use_rviz') == true)">
-        <group if="$(eval arg('map_name') == itri)">
+        <group if="$(eval arg('map_name') == 'itri')">
             <node pkg="rviz" type="rviz" name="rviz_node" output="screen"
                 args="-d $(find midterm_localization)/rviz/itri_setting.rviz"/>
         </group>
 
-        <group if="$(eval arg('map_name') == nuscene)">
+        <group if="$(eval arg('map_name') == 'nuscene')">
             <node pkg="rviz" type="rviz" name="rviz_node" output="screen"
                 args="-d $(find midterm_localization)/rviz/nuscene_setting.rviz"/>
         </group>

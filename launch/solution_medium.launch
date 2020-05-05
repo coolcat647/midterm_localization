@@ -14,7 +14,7 @@
     <arg name="num_pretest_poses" default="200" />
 
     <param name="use_sim_time" value="true"/>
-    <node name="solution3_node" pkg="midterm_localization" type="solution3_node" output="screen" >
+    <node name="solution_medium_node" pkg="midterm_localization" type="solution_medium_node" output="screen" >
         <param name="map_name" value="$(arg map_name)" />
         <param name="vg_size" value="$(arg vg_size)" />
         <param name="submap_size" value="$(arg submap_size)" />
@@ -23,16 +23,18 @@
         <param name="num_pretest_poses" value="$(arg num_pretest_poses)" />
         <param name="local_sizex" value="$(arg local_sizex)" />
         <param name="local_sizey" value="$(arg local_sizey)" />
+        <param name="remove_sizey_1" value="$(arg remove_sizey_1)" />
+        <param name="remove_sizey_h" value="$(arg remove_sizey_h)" />
     </node>
 
     <!-- RVIZ -->
     <group if="$(eval arg('use_rviz') == true)">
-        <group if="$(eval arg('map_name') == itri)">
+        <group if="$(eval arg('map_name') == 'itri')">
             <node pkg="rviz" type="rviz" name="rviz_node" output="screen"
                 args="-d $(find midterm_localization)/rviz/itri_setting.rviz"/>
         </group>
 
-        <group if="$(eval arg('map_name') == nuscene)">
+        <group if="$(eval arg('map_name') == 'nuscene')">
             <node pkg="rviz" type="rviz" name="rviz_node" output="screen"
                 args="-d $(find midterm_localization)/rviz/nuscene_setting.rviz"/>
         </group>
