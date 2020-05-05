@@ -178,6 +178,13 @@ target_link_libraries (solution_easy_node
   ${catkin_LIBRARIES}
 )
 
+include_directories(${EIGEN3_INCLUDE_DIRS})
+add_executable(solution_medium_node src/solution_medium_node.cpp)    
+target_link_libraries (solution_medium_node 
+  ${EIGEN3_LIBRARIES}
+  ${catkin_LIBRARIES}
+)
+
 #############
 ## Install ##
 #############
