@@ -22,6 +22,8 @@ Panels:
   - Class: rviz/Views
     Expanded:
       - /Current View1
+      - /XYOrbit1
+      - /XYOrbit1/Focal Point1
     Name: Views
     Splitter Ratio: 0.5
   - Class: rviz/Time
@@ -304,26 +306,21 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/XYOrbit
-      Distance: 24.41342544555664
+      Angle: 2.369999885559082
+      Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
-      Focal Point:
-        X: 1722.04736328125
-        Y: 1001.7701416015625
-        Z: 4.876988168689422e-5
-      Focal Shape Fixed Size: false
-      Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3297974467277527
+      Scale: 0.40552666783332825
       Target Frame: <Fixed Frame>
-      Value: XYOrbit (rviz)
-      Yaw: 5.9254045486450195
+      Value: TopDownOrtho (rviz)
+      X: 1137.3359375
+      Y: 1077.3131103515625
     Saved:
       - Class: rviz/XYOrbit
         Distance: 1884.594482421875
@@ -333,38 +330,18 @@ Visualization Manager:
           Swap Stereo Eyes: false
           Value: false
         Focal Point:
-          X: 1719.866455078125
-          Y: 1016.0066528320312
+          X: 968
+          Y: 1285
           Z: 4.876988168689422e-5
         Focal Shape Fixed Size: false
         Focal Shape Size: 0.05000000074505806
         Invert Z Axis: false
         Name: XYOrbit
         Near Clip Distance: 0.009999999776482582
-        Pitch: 0.9147969484329224
+        Pitch: 1.5697963237762451
         Target Frame: <Fixed Frame>
         Value: XYOrbit (rviz)
-        Yaw: 0.9022216796875
-      - Class: rviz/XYOrbit
-        Distance: 1884.594482421875
-        Enable Stereo Rendering:
-          Stereo Eye Separation: 0.05999999865889549
-          Stereo Focal Distance: 1
-          Swap Stereo Eyes: false
-          Value: false
-        Focal Point:
-          X: 1719.866455078125
-          Y: 1016.0066528320312
-          Z: 4.876988168689422e-5
-        Focal Shape Fixed Size: false
-        Focal Shape Size: 0.05000000074505806
-        Invert Z Axis: false
-        Name: XYOrbit
-        Near Clip Distance: 0.009999999776482582
-        Pitch: 0.9147969484329224
-        Target Frame: <Fixed Frame>
-        Value: XYOrbit (rviz)
-        Yaw: 0.9022216796875
+        Yaw: 1.5700000524520874
 Window Geometry:
   Displays:
     collapsed: false
@@ -383,5 +360,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1853
-  X: 1987
+  X: 67
   Y: 27

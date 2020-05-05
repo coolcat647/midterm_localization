@@ -4,7 +4,7 @@
     <arg name="vg_size" default="0.4" doc="voxel grid size" />
     <arg name="local_sizex" default="100" doc="local lidar data x range" />
     <arg name="local_sizey" default="24" doc="local lidar data y range" />
-    <arg name="remove_sizey_1" default="-20" doc="remove lidar data y range" />
+    <arg name="remove_sizey_l" default="-20" doc="remove lidar data y range" />
     <arg name="remove_sizey_h" default="10" doc="remove lidar data y range" />
     <arg name="submap_size" default="200" doc="cropped submap size" />
     <arg name="use_rviz" default="false" />
@@ -23,7 +23,7 @@
         <param name="num_pretest_poses" value="$(arg num_pretest_poses)" />
         <param name="local_sizex" value="$(arg local_sizex)" />
         <param name="local_sizey" value="$(arg local_sizey)" />
-        <param name="remove_sizey_1" value="$(arg remove_sizey_1)" />
+        <param name="remove_sizey_l" value="$(arg remove_sizey_l)" />
         <param name="remove_sizey_h" value="$(arg remove_sizey_h)" />
     </node>
 
