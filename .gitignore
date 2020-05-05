@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ROS
+devel/
+build/
+*.log
+*.bag
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+*.csv
+

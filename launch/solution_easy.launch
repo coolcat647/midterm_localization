@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="map_name" default="itri" doc="options: nctu, itri, nuscene" />
+    <arg name="vg_size" default="0.4" doc="voxel grid size" />
+    <arg name="local_sizex" default="100" doc="local lidar data x range" />
+    <arg name="local_sizey" default="24" doc="local lidar data y range" />
+    <arg name="submap_size" default="200" doc="cropped submap size" />
+    <arg name="use_rviz" default="false" />
+    <!-- Version 2 added below -->
+    <arg name="num_threads" default="8" />
+    <arg name="num_pretest_frames" default="4" />
+    <arg name="num_pretest_poses" default="200" />
+
+    <param name="use_sim_time" value="true"/>
+    <node name="solution_easy_node" pkg="midterm_localization" type="solution_easy_node" output="screen" >
+        <param name="map_name" value="$(arg map_name)" />
+        <param name="vg_size" value="$(arg vg_size)" />
+        <param name="submap_size" value="$(arg submap_size)" />
+        <param name="num_threads" value="$(arg num_threads)" />
+        <param name="num_pretest_frames" value="$(arg num_pretest_frames)" />
+        <param name="num_pretest_poses" value="$(arg num_pretest_poses)" />
+        <param name="local_sizex" value="$(arg local_sizex)" />
+        <param name="local_sizey" value="$(arg local_sizey)" />
+    </node>
+
+    <!-- RVIZ -->
+    <group if="$(eval arg('use_rviz') == true)">
+        <group if="$(eval arg('map_name') == itri)">
+            <node pkg="rviz" type="rviz" name="rviz_node" output="screen"
+                args="-d $(find midterm_localization)/rviz/itri_setting.rviz"/>
+        </group>
+
+        <group if="$(eval arg('map_name') == nuscene)">
+            <node pkg="rviz" type="rviz" name="rviz_node" output="screen"
+                args="-d $(find midterm_localization)/rviz/nuscene_setting.rviz"/>
+        </group>
+    </group>
+
+</launch>
