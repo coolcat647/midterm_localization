@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="map_name" default="itri" doc="options: nctu, itri, nuscene" />
+    <arg name="vg_size" default="0.4" doc="voxel grid size" />
+    <arg name="result_csv" default="csv" doc="result of csv" />
+    <arg name="use_rviz" default="false" />
+
+    <param name="use_sim_time" value="true"/>
+    <node name="read_csv" pkg="midterm_localization" type="read_csv" output="screen" >
+        <param name="map_name" value="$(arg map_name)" />
+        <param name="vg_size" value="$(arg vg_size)" />
+        <param name="result_csv" value="$(arg result_csv)" />
+    </node>
+
+    <!-- RVIZ -->
+    <group if="$(eval arg('use_rviz') == true)">
+        <group if="$(eval arg('map_name') == 'itri')">
+            <node pkg="rviz" type="rviz" name="rviz_node" output="screen"
+                args="-d $(find midterm_localization)/rviz/itri_setting.rviz"/>
+        </group>
+
+        <group if="$(eval arg('map_name') == 'nuscene')">
+            <node pkg="rviz" type="rviz" name="rviz_node" output="screen"
+                args="-d $(find midterm_localization)/rviz/nuscene_setting.rviz"/>
+        </group>
+    </group>
+
+</launch>

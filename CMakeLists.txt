@@ -185,6 +185,10 @@ target_link_libraries (solution_medium_node
   ${catkin_LIBRARIES}
 )
 
+add_executable(read_csv src/read_csv.cpp)
+add_dependencies(read_csv ${catkin_EXPORTED_TARGETS})
+target_link_libraries(read_csv ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############
