@@ -27,7 +27,6 @@ roslaunch midterm_localization solution_easy.launch use_rviz:=true \
     map_name:=itri \
     submap_size:=100 \
     local_sizex:=100 local_sizey:=24 \
-    vg_size:=0.25 \
     num_threads:=8 \
     num_pretest_frames:=4 \
     num_pretest_poses:=200
@@ -40,7 +39,6 @@ roslaunch midterm_localization solution_medium.launch use_rviz:=true \
     map_name:=nuscene \
     submap_size:=100 \
     local_sizex:=100 local_sizey:=24 \
-    vg_size:=0.25 \
     num_threads:=8 \
     num_pretest_frames:=4 \
     num_pretest_poses:=200 \
