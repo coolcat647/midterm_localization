@@ -141,7 +141,6 @@ public:
 
     vector<sensor_msgs::Imu> imu_tmp_list_;
     vector<sensor_msgs::Imu> imu_list_;
-    vector<geometry_msgs::PointStamped> gps_list_;
 };
 
 
@@ -189,7 +188,7 @@ Solution3Node::Solution3Node(ros::NodeHandle nh, ros::NodeHandle pnh):
     }
     
     // ICP constraints
-    icp_.setMaximumIterations(1000);
+    icp_.setMaximumIterations(100);
     icp_.setTransformationEpsilon(1e-14);
     icp_.setEuclideanFitnessEpsilon(1e-14); 
     //icp_.setMaxCorrespondenceDistance(50);
@@ -419,7 +418,6 @@ void Solution3Node::gnss_cb2(const geometry_msgs::PointStampedConstPtr &msg) {
     pub_gps_marker_.publish(line_strip_);
 
     cnt_gps_msgs_++;
-    gps_list_.push_back(*msg);
 }
 
 void Solution3Node::publish_path_from_matrix(const Eigen::Matrix4d &m, const ros::Time &t, bool show_info) {
@@ -522,13 +520,18 @@ void check_guess_finished(Solution3Node& node) {
         ros::spinOnce();
 
         bool flag_finished = true;
+        int finished_index = node.guess_list_.size();
         for (int i = 0; i < node.guess_list_.size(); i++) {
-            if(node.guess_list_[i].status_ != 2)
+            if(node.guess_list_[i].status_ != 2){
                 flag_finished = false;
+                finished_index = i;
+                break;
+            }
         }
+        cout << "Finished " << finished_index << " / " << node.guess_list_.size() << " quick ICP" << endl;
         if(flag_finished == true)
             break;
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 }
 
@@ -580,6 +583,11 @@ void multi_thread_guess(Solution3Node& node) {
                 quick_icp.align(*result_pc, guess);
                 node.guess_list_[index_todo].score_ += quick_icp.getFitnessScore();
                 node.guess_list_[index_todo].guess_matrix_ = quick_icp.getFinalTransformation().cast<double>();
+            
+                // Assign the original_matrix is the first result of icp 
+                // if(j == 0)
+                //     node.guess_list_[index_todo].original_matrix_ = 
+                //         quick_icp.getFinalTransformation().cast<double>();
             }
             node.guess_list_[index_todo].status_ = 2;
         } 
@@ -734,12 +742,6 @@ int main(int argc, char** argv){
                     map_msg.header.frame_id = kGlobalFrame;
                     node.pub_submap_.publish(map_msg);
                 }
-
-                // Take GPS position into initial guess consideration
-                // geometry_msgs::PointStamped tmp_pose = node.gps_list_[index_lidar_frame - 1];
-                // node.guess_matrix_(0, 3) = tmp_pose.point.x;
-                // node.guess_matrix_(1, 3) = tmp_pose.point.y;
-                // node.guess_matrix_(2, 3) = tmp_pose.point.z;
 
                 // Publish guessed lidar pointcloud in blue color
                 if(node.pub_result_pc_.getNumSubscribers() > 0) {

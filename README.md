@@ -4,7 +4,7 @@ This repo is created a ROS package for midterm localization competition of Self-
 # Maps setup
 Please put the \*.pcd files to test_data/[MAP_NAME] folder like this:
 ```bash
-├── midterm localization
+├── midterm_localization
 └── test_data
     ├─── itri_map
     │    └─── map.pcd
@@ -19,7 +19,7 @@ Please put the \*.pcd files to test_data/[MAP_NAME] folder like this:
                 ...
 ```
 
-# For ITRI map
+# How to run the code
 After compiling(catkin_make), run the code by:  
 ### ITRI
 ```bash
@@ -50,8 +50,8 @@ roslaunch midterm_localization solution_medium.launch use_rviz:=true \
 rosbag play Nu_Private_1.bag --clock -r 0.05
 ```
 
-
-# For NuScene map
+# The result files
+The result is saved in **midterm_localization/csv_files** directory, and the file is named by the map name and the current date time (e.g. itri_20200505T213332.csv)
 
 
 # Parameters description
