@@ -192,6 +192,7 @@ Solution3Node::Solution3Node(ros::NodeHandle nh, ros::NodeHandle pnh):
     // icp_.setMaxCorrespondenceDistance(30);
 
     filters_setup(voxel_grid_size);
+    std::this_thread::sleep_for(3s);
     map_setup();
     visualization_setup();
     
