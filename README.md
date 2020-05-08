@@ -20,6 +20,8 @@ Please put the \*.pcd files to test_data/[MAP_NAME] folder like this:
 ```
 
 # How to run the code
+note: First run the launch file, after need to wait the terminal show the green word "solution1_node is ready.", after that can run the rosbag.
+
 After compiling(catkin_make), run the code by:  
 ### ITRI
 ```bash
