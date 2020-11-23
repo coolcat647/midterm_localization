@@ -27,8 +27,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 find_package(Eigen3 REQUIRED)
-find_package(GeographicLib REQUIRED)
-add_definitions (${GeographicLib_DEFINITIONS})
+# find_package(GeographicLib REQUIRED)
+# add_definitions (${GeographicLib_DEFINITIONS})
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -116,9 +116,9 @@ add_definitions (${GeographicLib_DEFINITIONS})
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
-  LIBRARIES midterm_localization
-  CATKIN_DEPENDS eigen_conversions geometry_msgs nav_msgs pcl_conversions pcl_ros roscpp roslib rospy sensor_msgs std_msgs tf visualization_msgs
+  # INCLUDE_DIRS include
+  # LIBRARIES midterm_localization
+  # CATKIN_DEPENDS eigen_conversions geometry_msgs nav_msgs pcl_conversions pcl_ros roscpp roslib rospy sensor_msgs std_msgs tf visualization_msgs
   DEPENDS system_lib Eigen3
 )
 
@@ -131,7 +131,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
-  ${GeographicLib_INCLUDE_DIRS}
+  # ${GeographicLib_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
