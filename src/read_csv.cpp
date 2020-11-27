@@ -38,8 +38,8 @@
 // PCL_ROS
 #include <pcl_ros/transforms.h>
 // GeographicLib
-#include <GeographicLib/Geocentric.hpp>
-#include <GeographicLib/LocalCartesian.hpp>
+// #include <GeographicLib/Geocentric.hpp>
+// #include <GeographicLib/LocalCartesian.hpp>
 
 using namespace std;
 
