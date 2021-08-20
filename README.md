@@ -1,5 +1,11 @@
 # midterm_localization
-This repo is created a ROS package for midterm localization competition of Self-Driving Car course 
+This repo is created a ROS package for midterm localization competition of Self-Driving Car course
+
+<!-- |figures || -->
+
+|<img src="https://github.com/coolcat647/midterm_localization/blob/master/figures/itri_map_1.png" width="300" /><br /><p align="center">itri_map_1</p>|<img src="https://github.com/coolcat647/midterm_localization/blob/master/figures/itri_map_2.png" width="300" /><br /><p align="center">itri_map_2</p> |
+|-----|:-----:|
+|<img src="https://github.com/coolcat647/midterm_localization/blob/master/figures/itri_map_3.png" width="300" /><br /><p align="center"><b>itri_map_3</b></p>|<img src="https://github.com/coolcat647/midterm_localization/blob/master/figures/itri_map_4.png" width="300" /><br /><p align="center"><b>itri_map_4</b></p> |
 
 # Maps setup
 Please put the \*.pcd files to test_data/[MAP_NAME] folder like this:
@@ -54,4 +60,7 @@ rosbag play Nu_Private_1.bag --clock -r 0.05
 The result is saved in **midterm_localization/csv_files** directory, and the file is named by the map name and the current date time (e.g. itri_20200505T213332.csv)
 
 
-# Parameters description
+[itri_map_1]: https://github.com/coolcat647/midterm_localization/blob/master/figures/itri_map_1.png "itri_map_1"
+[itri_map_2]: https://github.com/coolcat647/midterm_localization/blob/master/figures/itri_map_2.png "itri_map_2"
+[itri_map_3]: https://github.com/coolcat647/midterm_localization/blob/master/figures/itri_map_3.png "itri_map_3"
+[itri_map_4]: https://github.com/coolcat647/midterm_localization/blob/master/figures/itri_map_4.png "itri_map_4"
